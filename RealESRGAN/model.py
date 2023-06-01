@@ -19,7 +19,8 @@ class RealESRGAN:
             num_block=23, num_grow_ch=32, scale=scale
         )
         
-    def load_weights(self, model_path, repo_id, filename, download=True):
+    def load_weights(self, local_model_path, repo_id, filename, download=True):
+        model_path = local_model_path + filename
         if not os.path.exists(model_path) and download:
             cache_dir = os.path.dirname(model_path)
             local_filename = os.path.basename(model_path)
