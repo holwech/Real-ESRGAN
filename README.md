@@ -14,7 +14,7 @@ You can try it in [google colab](https://colab.research.google.com/drive/1YlWt--
 ### Installation
 
 ```bash
-pip install git+https://github.com/sberbank-ai/Real-ESRGAN.git
+pip install git+https://github.com/holwech/Real-ESRGAN.git
 ```
 
 ### Usage
@@ -32,7 +32,12 @@ from RealESRGAN import RealESRGAN
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 model = RealESRGAN(device, scale=4)
-model.load_weights('weights/RealESRGAN_x4.pth', download=True)
+model.load_weights(
+    local_model_path='weights/', 
+    repo_id="holwech/realistic-rescaler-real-esrgan", 
+    filename="4x_RealisticRescaler_100000_G.pth", 
+    download=True
+)
 
 path_to_image = 'inputs/lr_image.png'
 image = Image.open(path_to_image).convert('RGB')
