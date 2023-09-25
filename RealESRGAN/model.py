@@ -4,7 +4,7 @@ from torch.nn import functional as F
 from PIL import Image
 import numpy as np
 import cv2
-from huggingface_hub import hf_hub_url, try_to_load_from_cache, _CACHED_NO_EXIST
+from huggingface_hub import hf_hub_download
 
 from .rrdbnet_arch import RRDBNet
 from .utils import pad_reflect, split_image_into_overlapping_patches, stich_together, \
